@@ -31,8 +31,30 @@ createApp ({
             activeImage: 0,
             time: 2000,
             interval: null,
-            movie: {
-                image: slides[0]},
+            movie: slides,
         }
-    }
+    },
+    mounted() {
+        this.startAutoscroll();
+    },
+    methods: {
+        showNext() {
+          if (this.activeImage < this.movie.length - 1) {
+            this.activeImage++;
+          } else {
+            this.activeImage = 0;
+          }
+        },
+        showPrev() {
+          if (this.activeImage > 0) {
+            this.activeImage--;
+          } else {
+            this.activeImage = this.movie.length - 1;
+          }
+        },
+        startAutoscroll() {
+          console.log("interval", this.time);
+          this.interval = setInterval(this.showNext, this.time);
+        },
+      },
 }).mount("#app");
