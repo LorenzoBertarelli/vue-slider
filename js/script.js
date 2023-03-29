@@ -32,7 +32,7 @@ createApp ({
             time: 2000,
             interval: null,
             movie: {
-                image: [slides]},
+                image: slides[0]},
         }
     }
 }).mount("#app");
