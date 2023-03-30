@@ -52,9 +52,15 @@ createApp ({
             this.activeImage = this.movie.length - 1;
           }
         },
+        showSlide(indexToShow) {
+          this.activeImage = indexToShow;
+        },
+        stopAutoscroll() {
+          clearInterval(this.interval);
+        },      
         startAutoscroll() {
           console.log("interval", this.time);
           this.interval = setInterval(this.showNext, this.time);
-        },
-      },
+        }
+      }
 }).mount("#app");
